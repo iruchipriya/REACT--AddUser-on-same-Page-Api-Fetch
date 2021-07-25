@@ -14,17 +14,17 @@ export default function App() {
     setentph(e.target.value);
   };
 
-  const addHandler = async e => {
+  const addHandler = e => {
     e.preventDefault();
-    const request = {
-      namep: entName,
-      phoneNo: entph
-    };
-    const response = await Axios.post(
-      'https://crudcrud.com/Dashboard/328d8dad4e494e8ca43867dd2312cc3d',
-      request
-    );
-    console.log('add', reponse.data);
+    // const request = {
+    //   namep: entName,
+    //   phoneNo: entph
+    // };
+    // const response = await Axios.post(
+    //   'https://crudcrud.com/Dashboard/328d8dad4e494e8ca43867dd2312cc3d',
+    //   request
+    // );
+    // console.log('add', reponse.data);
     // setList([
     //   ...listN,
     //   {
@@ -32,7 +32,13 @@ export default function App() {
     //     phoneNo: entph
     //   }
     // ]);
-    setList([...listN, response.data]);
+    setList([
+      ...listN,
+      {
+        namep: entName,
+        phoneNo: entph
+      }
+    ]);
     console.log(listN);
     setentName('');
     setentph('');
